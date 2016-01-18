@@ -1,0 +1,15 @@
+# deployment:
+#   production:
+#     branch: production
+#     commands:
+
+database:
+  override:
+    - mv config/database.sample.yml config/database.yml
+    - psql -c 'create database rails_assets_test;' -U postgres
+    - bundle exec rake db:migrate
+
+test:
+  override:
+    - cp config/application.sample.yml config/application.yml
+    - bundle exec rspec:
