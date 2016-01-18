@@ -12,4 +12,4 @@ database:
 test:
   override:
     - cp config/application.sample.yml config/application.yml
-    - bundle exec rspec:
+    - bundle exec rspec
