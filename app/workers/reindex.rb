@@ -1,4 +1,4 @@
-require 'rubygems/indexer'
+require 'rubygems/specification'
 
 class Reindex
   include Sidekiq::Worker
@@ -102,8 +102,8 @@ class Reindex
   end
 
   def gemspec_rz(spec)
-    self.class.indexer.abbreviate spec
-    self.class.indexer.sanitize spec
+    self.class.specification.abbreviate
+    self.class.specification.sanitize
     Gem.deflate(Marshal.dump(spec))
   end
 
@@ -152,13 +152,7 @@ class Reindex
     final.string
   end
 
-  def self.indexer
-    @indexer ||=
-      begin
-        indexer = Gem::Indexer.new(Figaro.env.data_dir,
-                                   :build_legacy => false)
-        def indexer.say(message) end
-        indexer
-      end
+  def self.specification
+    @specification ||= Gem::Specification.new
   end
 end
