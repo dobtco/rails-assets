@@ -8,4 +8,11 @@ production:
       sudo: true
       target: rails
       run_on: all_servers
-
+    - command: ln -s /var/deploy/rails-assets/web_head/shared/gems public/gems
+      sudo: true
+      target: rails
+      run_on: all_servers
+    - command: chmod -R 777 public
+      sudo: true
+      target: rails
+      run_on: all_servers
