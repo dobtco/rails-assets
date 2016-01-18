@@ -30,8 +30,6 @@ gem 'autoprefixer-rails', '>= 0.6.20130728'
 gem 'redcarpet'
 gem 'figaro', github: 'laserlemon/figaro'
 
-gem 'sentry-raven'
-
 gem 'thin'
 gem 'puma', '>= 2.1.1'
 gem 'newrelic_rpm'
