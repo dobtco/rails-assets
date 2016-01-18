@@ -1,0 +1,11 @@
+production:
+  after_symlink:
+    - command: ln -s /var/deploy/rails-assets/web_head/shared/node_modules node_modules
+      sudo: true
+      target: rails
+      run_on: all_servers
+    - command: ln -s /var/deploy/rails-assets/web_head/shared/bower_modules bower_modules
+      sudo: true
+      target: rails
+      run_on: all_servers
+
