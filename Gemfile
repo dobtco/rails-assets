@@ -4,6 +4,7 @@ ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.2'
+gem 'bugsnag'
 
 gem 'pg'
 gem 'schema_plus'
