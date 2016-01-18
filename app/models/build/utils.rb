@@ -11,7 +11,7 @@ module Build
         command = "#{BOWER_BIN} #{command.join(' ')} --json"
         command += " --config.tmp=#{tmp}/tmp"
         command += " --config.storage.packages=#{tmp}/cache"
-        command += " --config.interactive=false"
+        command += " --allow-root"
 
         Rails.logger.info(command)
 
